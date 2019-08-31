@@ -22,3 +22,36 @@ Input : Rama#fortu9e
 Output : Invalid Password
 
 '''
+
+def checkEmail(email):
+    ln = email._len_()
+    if ln >2:
+        dot_i = email.find(".")
+        at_i = email.find("@")
+        if dot_i != -1 and at_i != -1 and ln - dot_i > 2 and dot_i - at_i > 2 and ln - at_i >5 and at_i >2:
+            return True
+        else:
+            return False
+    else:
+        return False
+            
+def checkPassword(pas):
+    ln = pas._len_()
+    if ln >8 and pas.isalnum() and pas.isprintable():
+        return True
+    else:
+        return False        
+            
+                      
+
+email = str(input("Enter Email :")).strip()
+if checkEmail(email):
+    print("Email is valid")
+else:
+    print("Invalid email address...!")
+    
+pas = str(input("Enter Password :")).strip()
+if checkPassword(pas):
+    print("Password is valid")
+else:
+    print("Week password")
